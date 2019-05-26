@@ -1,0 +1,37 @@
+기본 형식
+
+1. cafe.naver.com/rlanguage 접속하여 5주 t-검정 실습의 첨부파일인 cquiz1.cvs를 다운받는다.
+2. R 프로그램을 실행
+3. setwd("경로 입력")          tip) 경로는 cquiz1.cvs가 있는 폴더로 한다. 이왕이면 편하게 C나 D에 넣는 것이 편하다. ex) setwd("D:\\")
+4. getwd() 로 확인
+5. 경로에 있는 csv 파일을 읽어오기 위해 read.csv("파일이름.csv")를 입력한다.
+5-1. 다시 불러오기 귀찮으면 a<-read.csv("파일이름.csv") 형식으로 집어넣으면 된다.
+
+
+
+설치할 라이브러리
+
+1. ggplot을 사용하기 위해서는 라이브러리를 설치해야한다.
+
+1-2. install.packages("ggplot2") 을 입력하여 설치한다.
+1-3. library(ggplot2)를 입력하여 설치되었는지 확인한다.
+
+
+
+코드 진행도
+
+setwd("d:\\Rlanguage")
+getwd()
+sc<-read.csv("cquiz1.csv")
+ggplot(data=sc,aes(x=name,y=score))+geom_point(colour="red",pch=16,size=3)+labs(title="C언어Quiz결과",caption="4Team",y="점수",x="학생이름")
+
+아니면
+
+ggplot(data=sc,aes(x=name,y=score))+geom_bar(fill="dark blue",stat="identity")+labs(title="C언어Quiz결과",caption="4Team",y="점수",x="학생이름")
+
+
+해설) setwd로 경로 설정 / getwd()로 경로 확인 / csv파일을 sc라는 변수에 삽입 / ggplot = 산점도를 표현하기 위하여 선언
+	ggplot 안에서 사용할 data는 아까 선언한 sc를 입력하고 / aes는 산점도 그래프에서 사용할 x축과 y축을 무엇을 할건지 선언
+	geom_point로 산점도에 표시할 도형과 크기 그리고 색을 선언한다.
+	labs로 제목인 title, 주석인 caption, y축의 이름, x축의 이름 을 입력한다.
+
